@@ -1,0 +1,123 @@
+{
+  "name": "crystal-cobalt",
+  "version": "1.0.0",
+  "type": "original-source-assets",
+  "authorship": "Programmatically authored SVG assets for this project; not extracted from the client PDF; not generated as fake corporate photographs.",
+  "referencePolicy": "The source 55-page bank deck is inspiration only. No logo, radial emblem or identical torus artwork is copied.",
+  "usage": {
+    "backgrounds": "Full-frame visual underlays. Keep text in HTML for editable hybrid PPTX.",
+    "objects": "Original optional visual focal objects. Use rarely (opening or chapter transitions).",
+    "elements": "Low-contrast technical linework, never directly under small chart labels.",
+    "icons": "Matching 64x64 SVG pictograms, use only for actual semantic meaning."
+  },
+  "files": [
+    {
+      "path": "backgrounds/analytical-light.svg",
+      "format": "svg",
+      "license": "MIT",
+      "original": true
+    },
+    {
+      "path": "backgrounds/atmospheric-dark.svg",
+      "format": "svg",
+      "license": "MIT",
+      "original": true
+    },
+    {
+      "path": "backgrounds/aurora-magenta.svg",
+      "format": "svg",
+      "license": "MIT",
+      "original": true
+    },
+    {
+      "path": "backgrounds/data-night.svg",
+      "format": "svg",
+      "license": "MIT",
+      "original": true
+    },
+    {
+      "path": "backgrounds/mixed-strategic.svg",
+      "format": "svg",
+      "license": "MIT",
+      "original": true
+    },
+    {
+      "path": "elements/contour-field.svg",
+      "format": "svg",
+      "license": "MIT",
+      "original": true
+    },
+    {
+      "path": "elements/orbital-arcs.svg",
+      "format": "svg",
+      "license": "MIT",
+      "original": true
+    },
+    {
+      "path": "icons/balance.svg",
+      "format": "svg",
+      "license": "MIT",
+      "original": true
+    },
+    {
+      "path": "icons/client.svg",
+      "format": "svg",
+      "license": "MIT",
+      "original": true
+    },
+    {
+      "path": "icons/digital.svg",
+      "format": "svg",
+      "license": "MIT",
+      "original": true
+    },
+    {
+      "path": "icons/growth.svg",
+      "format": "svg",
+      "license": "MIT",
+      "original": true
+    },
+    {
+      "path": "icons/liquidity.svg",
+      "format": "svg",
+      "license": "MIT",
+      "original": true
+    },
+    {
+      "path": "icons/operations.svg",
+      "format": "svg",
+      "license": "MIT",
+      "original": true
+    },
+    {
+      "path": "icons/risk.svg",
+      "format": "svg",
+      "license": "MIT",
+      "original": true
+    },
+    {
+      "path": "icons/treasury.svg",
+      "format": "svg",
+      "license": "MIT",
+      "original": true
+    },
+    {
+      "path": "objects/faceted-glass.svg",
+      "format": "svg",
+      "license": "MIT",
+      "original": true
+    },
+    {
+      "path": "objects/faceted-growth-arrow.svg",
+      "format": "svg",
+      "license": "MIT",
+      "original": true
+    },
+    {
+      "path": "objects/optical-loop.svg",
+      "format": "svg",
+      "license": "MIT",
+      "original": true
+    }
+  ]
+}

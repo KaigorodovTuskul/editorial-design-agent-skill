@@ -17,3 +17,10 @@ test('missing fields and incorrect mode trigger errors',()=>{
  assert.ok(findings.some(x=>x.code==='MODE'));
  assert.ok(findings.some(x=>x.severity==='error'));
 });
+
+test('Crystal Cobalt supports four distinct tonal modes and rejects Azure-only modes',()=>{
+ const modes=['atmospheric-dark','analytical-light','data-night','mixed-strategic'];
+ const pages=modes.map((mode,i)=>({...slide(i),mode}));
+ assert.equal(critiqueVisualScore({theme:'crystal-cobalt-enterprise',pages}).filter(x=>x.severity==='error').length,0);
+ assert.ok(critiqueVisualScore({theme:'crystal-cobalt-enterprise',pages:[{...slide(0),mode:'lighter'}]}).some(x=>x.code==='MODE'));
+});

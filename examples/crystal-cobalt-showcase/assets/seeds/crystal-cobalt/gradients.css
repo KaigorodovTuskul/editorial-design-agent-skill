@@ -1,0 +1,57 @@
+/* Crystal Cobalt Enterprise: APPROXIMATE design proposals, not original AEB CSS. */
+:root {
+  --ink-950: #141A24;
+  --ink-850: #222B3A;
+  --navy-900: #0D2456;
+  --blue-800: #0739AD;
+  --blue-650: #075DDE;
+  --blue-500: #1885F1;
+  --cyan-450: #00BFE9;
+  --violet-500: #7756D9;
+  --magenta-550: #B21EB4;
+  --paper-100: #F9FBFE;
+  --paper-200: #F0F3F8;
+  --paper-300: #E6EDF6;
+  --text-muted: #8490A3;
+}
+
+/* Cover/section: 2 light sources, not a uniform hue interpolation. */
+.gradient-aurora-cobalt-magenta {
+  background:
+    radial-gradient(ellipse 55% 110% at 60% 60%, rgba(4,67,189,.86), transparent 75%),
+    radial-gradient(ellipse 36% 90% at 104% 50%, rgba(178,30,180,.80), transparent 74%),
+    linear-gradient(112deg, var(--ink-950) 7%, #101F44 55%, #192137 100%);
+}
+
+/* Section: near-black marine field, cobalt-to-cyan directional energy. */
+.gradient-marine-cyan {
+  background:
+    radial-gradient(ellipse 75% 115% at 86% 85%, rgba(0,191,233,.93), transparent 61%),
+    linear-gradient(118deg, #0739AD 3%, var(--ink-950) 76%);
+}
+
+/* More luminous cobalt; reserve for major feature pages. */
+.gradient-electric-cobalt {
+  background:
+    radial-gradient(ellipse 70% 85% at 95% 100%, rgba(0,191,233,.87), transparent 75%),
+    linear-gradient(135deg, #0739AD, #075DDE 56%, #0D2456);
+}
+
+/* Analytical mode intentionally avoids strong gradient spectacle. */
+.gradient-ice-surface {
+  background: linear-gradient(125deg, #F9FBFE 8%, #F0F3F8 63%, #E6EDF6 100%);
+}
+
+/* On a 3D object, these highlights belong in its material shading, not as text fill. */
+.glass-object-refraction {
+  --glass-rim-cyan: #00BFE9;
+  --glass-core-blue: #075DDE;
+  --glass-prism-violet: #7756D9;
+}
+
+/* Reduced contrast / visual movement for data-first layouts. */
+.data-night-surface { background: var(--ink-950); color: white; }
+.data-night-panel { background: var(--ink-850); }
+
+/* NOTE: use gradients as page components after art-direction selection,
+   never as a global background on every page. */

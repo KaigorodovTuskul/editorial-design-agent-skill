@@ -8,8 +8,9 @@ import {prepareFreeform} from '../src/freeform.mjs';
 import {checkHallmark} from '../src/hallmark.mjs';
 import {recordReview,release} from '../src/release.mjs';
 import {critiqueVisualScore} from '../src/visual-system.mjs';
+import {listThemeSeeds,copySeedsToProject} from '../src/seeds.mjs';
 const repo=resolve(import.meta.dirname,'..');
-function usage(){console.log(`Editorial Design Engine v0.2.2\n\nUsage:\n  editorial themes\n  editorial build-html <freeform-project-dir> [--out <dir>] [--allow-unverified]
+function usage(){console.log(`Editorial Design Engine v0.2.3\n\nUsage:\n  editorial themes\n  editorial seeds [theme]\n  editorial seed <project-dir> [--theme crystal-cobalt-enterprise]\n  editorial build-html <freeform-project-dir> [--out <dir>] [--allow-unverified]
   editorial verify <build-dir>
   editorial build <input.json> [--out <dir>] [--unattended] [--allow-unverified]\n  editorial render <build-dir>\n  editorial export-pptx <build-dir>\n  editorial review <build-dir> --cycle 1 --notes review-notes.json\n  editorial release <build-dir> --approval human-approval.json\n\nStrict builds require a design approval, Hallmark installed, clean geometry and model-led visual review before publishing.\n--allow-unverified is for demos only; it NEVER means READY.`);}
 const args=process.argv.slice(2);
@@ -25,6 +26,21 @@ try{
     console.log('Fonts:');for(const [id,v] of Object.entries(presets.fonts))console.log(`  ${id} — ${v.name}`);
     process.exit(0);
   }
+  if(command==='seeds'){
+    const theme=args.shift()||presets.defaults.theme;
+    const info=listThemeSeeds(theme);
+    if(!info.available){console.log(`${theme}: no bundled seeds`);process.exit(0);}
+    console.log(`${theme}: ${info.files.length} original SVG assets in ${info.root}`);
+    for(const file of info.files)console.log(`  ${file}`);
+    process.exit(0);
+  }
+  if(command==='seed'){
+    const target=args.shift();if(!target)throw new Error('Project folder required');
+    const theme=valueFlag('--theme',presets.defaults.theme);
+    const result=copySeedsToProject(theme,target);
+    console.log(JSON.stringify(result,null,2));
+    process.exit(0);
+  }
   if(command==='build-html'){
     const input=args.shift();if(!input)throw new Error('Project folder required');
     const out=resolve(valueFlag('--out','outputs/freeform'));
@@ -34,7 +50,7 @@ try{
     const visualScoreFile=resolve(input,'visual-plan.json');
     if(existsSync(visualScoreFile)){
       const visualScore=JSON.parse(readFileSync(visualScoreFile,'utf8'));
-      const findings=critiqueVisualScore(visualScore);
+      const findings=critiqueVisualScore(visualScore,doc.design.theme);
       write(join(out,'visual-plan-report.json'),{status:findings.some(f=>f.severity==='error')?'ERROR':'REVIEW',findings});
       if(findings.some(f=>f.severity==='error')) throw new Error('Visual art-direction plan invalid: '+findings.filter(f=>f.severity==='error').map(f=>f.code).join(','));
       if(findings.some(f=>f.severity==='warning')) console.warn('Visual score has '+findings.filter(f=>f.severity==='warning').length+' variety warnings; inspect contact sheet.');

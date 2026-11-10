@@ -1,8 +1,8 @@
 # Editorial Design — Agent Skill & Publishing Engine
 
-**Version 0.2.2: original, agent-authored editorial HTML → PDF + hybrid editable PPTX.**
+**Version 0.2.3: original, agent-authored editorial HTML → PDF + hybrid editable PPTX.**
 
-**Art-direction upgrade:** **Azure Iris Unified** is the default three-mode editorial identity (Lighter / Refined / Darker). This version explicitly supports richer SVG illustration, layered color, purposeful gradients and consistent semantic icons. The model must create a distinctive composition per page rather than repeating a fixed visual flourish; a lightweight art-direction score checks variety before rendering. See [`docs/art-direction.md`](docs/art-direction.md) and [`docs/palette-v0.2.2.md`](docs/palette-v0.2.2.md).
+**Art-direction upgrade:** **Crystal Cobalt Enterprise** is now the default **four-mode** identity (Atmospheric Dark / Analytical Light / Data Night / Mixed Strategic), with original reusable seed assets in [`seeds/crystal-cobalt/`](seeds/crystal-cobalt/README.md). Azure Iris Unified remains available. This version introduces actual local artwork, automatic seed inclusion in source builds, and an offline renderer that correctly loads the SVGs. The agent still chooses free-form compositions for every page: the seeds are not slide templates.
 
 An agent skill for investment presentations, strategy decks and financial publications that are visually designed rather than filled into a deck template. The **model art-directs each page** in unrestricted HTML/CSS/SVG. A deterministic engine measures text, renders real browser pages, and exports one static artwork image per slide plus native PowerPoint text objects.
 
@@ -35,7 +35,7 @@ pip install -r requirements.txt
 npm install
 npm run setup:hallmark
 
-# Preview the explicitly hand-designed, seven-slide demo
+# Preview the original seven-slide Azure Iris demo (still available)
 python examples/editorial-reference/build_example.py
 node bin/editorial.mjs build-html examples/editorial-reference \
     --out outputs/azure-iris --allow-unverified
@@ -57,6 +57,8 @@ Do not run `build_example.py` to create real investor content; it is an illustra
 
 ```text
 editorial themes
+editorial seeds [theme]
+editorial seed <project-dir> [--theme crystal-cobalt-enterprise]
 editorial build-html <project> --out <output> [--allow-unverified] [--unattended]
 editorial verify <output>
 editorial review <output> --cycle 1|2|3 --notes <qa.json>
@@ -91,7 +93,7 @@ Editable fields may be modified in PowerPoint. Their original backgrounds are te
 
 ## Design system and agent contract
 
-Default palette: **Azure Iris Unified** (Lighter / Refined / Darker in a single visual identity, with expressive contextual SVG, gradients and thoughtful iconography). Default text face: **Geologica Roman**. The agent must ask for palette and font **once, before a new interactive publication**, offering "Use defaults"; brand assets override defaults when provided. Supported alternatives: Geist, IBM Plex Sans, Onest, Manrope. The bundled demo uses Geologica with installed browser substitutes in this execution environment, and therefore cannot be cleared as a final approved Geologica publication.
+Default palette: **Crystal Cobalt Enterprise** (Atmospheric Dark / Analytical Light / Data Night / Mixed Strategic), with original blue/cyan/violet optical seed artwork. Azure Iris Unified remains an alternative. Default text face: **Geologica Roman**. The agent must ask for palette and font **once, before a new interactive publication**, offering "Use defaults"; brand assets override defaults when provided. Supported alternatives: Geist, IBM Plex Sans, Onest, Manrope. The demos request Geologica but may render with installed browser substitutes in this execution environment, and therefore cannot be cleared as a final approved Geologica publication.
 
 Read [`SKILL.md`](SKILL.md) for the agent contract. Start with [`docs/art-direction.md`](docs/art-direction.md). Supporting references: [`docs/design-grammar.md`](docs/design-grammar.md), [`docs/quality-gates.md`](docs/quality-gates.md), [`docs/hybrid-pptx.md`](docs/hybrid-pptx.md), [`docs/hallmark-integration.md`](docs/hallmark-integration.md) and [`docs/architecture.md`](docs/architecture.md).
 
@@ -102,3 +104,20 @@ Enterprise publication is not synonymous with "the file exists". The PDF/PPTX pa
 ## License
 
 MIT for this project's own code. Hallmark is an independent MIT dependency. Fonts, photos and third-party visual assets retain their own licenses and are never redistributed here.
+
+## Crystal Cobalt Enterprise (integrated, default)
+
+The default design profile is grounded in a 55-page corporate financial strategy reference; it is a design language, **not a copy of the brand's graphic assets**. The repository ships original, reusable, editable SVG seeds in `seeds/crystal-cobalt/` (5 full-frame gradient underlays, 3 optical hero objects, 2 technical linework elements, 8 domain pictograms), plus the design specification in `references/styles/crystal-cobalt-enterprise.md`.
+
+```bash
+node bin/editorial.mjs themes
+node bin/editorial.mjs seeds crystal-cobalt-enterprise
+node bin/editorial.mjs seed examples/crystal-cobalt-showcase --theme crystal-cobalt-enterprise
+npm run check:seeds
+npm run preview:seeds
+node bin/editorial.mjs build-html examples/crystal-cobalt-showcase --out outputs/crystal-cobalt --allow-unverified
+```
+
+The `seed` command copies original art into `PROJECT/assets/seeds/crystal-cobalt/` without replacing project-authored files. The build pipeline copies the currently selected theme's seeds into `OUTPUT/assets/seeds/crystal-cobalt/` automatically. Slides can reference, for example, `../assets/seeds/crystal-cobalt/backgrounds/atmospheric-dark.svg` or `../assets/seeds/crystal-cobalt/objects/optical-loop.svg`. These are **visual layers only**: editable text/numbers remain native HTML so the hybrid PPTX exporter can overlay them.
+
+Original seed authorship and restrictions are documented in `seeds/crystal-cobalt/manifest.json`. Hallmark remains a pinned external dependency and is not bundled; no successful audit should be claimed until it is installed and actually executed.

@@ -5,6 +5,8 @@ This script deliberately does not claim to perform artistic review. Agent-led vi
 review of the generated contact sheet is required by SKILL.md.
 """
 import argparse
+import base64
+import mimetypes
 import json
 import math
 import os
@@ -91,18 +93,60 @@ JS_FIELDS = r'''() => Array.from(document.querySelectorAll('[data-editable="true
 
 
 def load_offline_html(file):
-    """Inline local relative CSS; Chromium file:// navigation is blocked in some sandboxes."""
+    """Inline local CSS and images to render deterministically from about:blank.
+
+    In this sandbox Chromium cannot open file:// pages directly. Assets remain
+    independent original SVG/PNG files in source; we embed them only into the
+    browser's rendering copy. No remote resources are permitted.
+    """
     file=Path(file)
     html=file.read_text(encoding='utf-8')
-    pattern=r'<link\s+rel=["\']stylesheet["\']\s+href=["\']([^"\']+)["\']\s*/?>'
-    def inline(match):
+
+    def as_data_uri(src, base_dir):
+        if src.startswith(('data:', 'http:', 'https:', '//', '/')) or '..' not in src and src.startswith('#'):
+            if src.startswith('data:image/'):
+                return src
+            raise ValueError('Only local asset references are allowed: '+src)
+        target=(base_dir/src).resolve()
+        if not target.is_file():
+            raise FileNotFoundError(f'Missing asset: {target}')
+        # Hard limit guards against unexpectedly giant assets and image bombs.
+        if target.stat().st_size > 12_000_000:
+            raise ValueError(f'Asset exceeds 12MB: {target}')
+        mime={'.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg',
+              '.jpeg':'image/jpeg','.webp':'image/webp'}.get(target.suffix.lower())
+        if not mime:
+            raise ValueError(f'Unsupported asset type: {target}')
+        return 'data:'+mime+';base64,'+base64.b64encode(target.read_bytes()).decode('ascii')
+
+    def inline_css_urls(css, css_file):
+        def sub(m):
+            quote=m.group(1) or ''
+            name=m.group(2).strip()
+            if name.startswith('#'):
+                return m.group(0)
+            return 'url('+quote+as_data_uri(name,css_file.parent)+quote+')'
+        return re.sub(r'url\(\s*(["\']?)([^)"\']+)\1\s*\)',sub,css)
+
+    def inline_css(match):
         name=match.group(1)
         if name.startswith(('http:', 'https:', 'data:', '/')):
             raise ValueError('External/absolute CSS is forbidden in deterministic rendering')
-        p=(file.parent/name).resolve()
-        if not p.is_file():raise FileNotFoundError(f'Stylesheet {p} not found')
-        return '<style>\n'+p.read_text(encoding='utf-8')+'\n</style>'
-    return re.sub(pattern,inline,html,flags=re.I)
+        css_file=(file.parent/name).resolve()
+        if not css_file.is_file():
+            raise FileNotFoundError(f'Stylesheet {css_file} not found')
+        css=inline_css_urls(css_file.read_text(encoding='utf-8'),css_file)
+        return '<style>\n'+css+'\n</style>'
+
+    css_pattern=r'<link\s+rel=["\']stylesheet["\']\s+href=["\']([^"\']+)["\']\s*/?>'
+    html=re.sub(css_pattern,inline_css,html,flags=re.I)
+
+    def inline_img(match):
+        prefix, src, suffix=match.groups()
+        return prefix+as_data_uri(src,file.parent)+suffix
+    img_pattern=r'(<img\b[^>]*\bsrc=["\'])([^"\']+)(["\'])'
+    html=re.sub(img_pattern,inline_img,html,flags=re.I)
+    return html
 
 
 def render(config):
@@ -125,6 +169,9 @@ def render(config):
             num=index+1
             page.set_content(load_offline_html(html_path),wait_until='load')
             page.evaluate('async () => { await document.fonts.ready; await Promise.all(Array.from(document.images).map(img => img.complete ? Promise.resolve() : new Promise(resolve => {img.onload=resolve; img.onerror=resolve;}))); }')
+            unloaded=page.evaluate('() => [...document.images].filter(i => !i.complete || i.naturalWidth === 0).map(i => i.currentSrc || i.src)')
+            if unloaded:
+                raise RuntimeError(f'Unloaded image assets in {html_path}: {unloaded}')
             page.locator('.slide').wait_for()
             fields=page.evaluate(JS_FIELDS)
             # Record a fontconfig-verified family for LibreOffice parity (and warn on fallback).
@@ -174,7 +221,7 @@ def render(config):
     if font_result['status']=='missing':
         findings.append({'severity':'P1','type':'font_missing','detail':font_result})
     report={
-      'version':'0.2.1','format':'1920x1080','slideCount':len(specs),
+      'version':'0.2.3','format':'1920x1080','slideCount':len(specs),
       'font':font_result,'slides':specs,'findings':findings,
       'contactSheet':'contact-sheet.png','pdf':'publication.pdf',
       'geometryPass':not any(f['severity']=='P0' for f in findings),

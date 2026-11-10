@@ -2,6 +2,7 @@
 import {readFileSync,writeFileSync,mkdirSync,readdirSync,copyFileSync,statSync,existsSync,rmSync} from 'node:fs';
 import {basename,join,resolve,relative,extname} from 'node:path';
 import {presets} from './validate.mjs';
+import {copyThemeSeeds} from './seeds.mjs';
 import {assert} from './utils.mjs';
 
 function copyTree(from,to){
@@ -42,10 +43,13 @@ export function prepareFreeform(source,out,{unattended=false}={}){
   }
   copyTree(slideDir,join(dest,'slides'));
   if(existsSync(join(root,'assets')))copyTree(join(root,'assets'),join(dest,'assets'));
+  // Install theme-specific original graphical layers in the portable output.
+  // Do not overwrite artist-authored project assets.
+  const seedCopy=copyThemeSeeds(design.theme,join(dest,'assets')); 
   // Copy source plan and build metadata for reproducibility.
   const doc={meta:raw.meta,design,palette:presets.themes[design.theme],font:presets.fonts[design.font],
     slides:files.map((name,index)=>({id:basename(name,'.html'),kind:'freeform',title:raw.pages?.[index]?.title||basename(name,'.html')})),
-    sourceMode:'agent-authored-freeform',quality:raw.quality||{}};
+    sourceMode:'agent-authored-freeform',seedAssets:seedCopy,quality:raw.quality||{}};
   writeFileSync(join(dest,'normalized.json'),JSON.stringify(doc,null,2));
   const manifest={out:dest,htmlFiles:files.map(x=>join(dest,'slides',x)),
     slideIds:doc.slides.map(x=>x.id),fontFamily:doc.font.css,sourceMode:'agent-authored-freeform'};

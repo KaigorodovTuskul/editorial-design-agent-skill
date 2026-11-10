@@ -1,6 +1,6 @@
 {
   "name": "editorial-design-agent-skill",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": true,
   "type": "module",
   "description": "Agent-directed freeform editorial HTML publishing with audited PDF and hybrid PPTX",
@@ -13,7 +13,9 @@
     "demo": "python examples/editorial-reference/build_example.py && node bin/editorial.mjs build-html examples/editorial-reference --out outputs/azure-iris --allow-unverified",
     "demo:strict": "node bin/editorial.mjs build-html examples/editorial-reference --out outputs/azure-iris",
     "demo:verify": "node bin/editorial.mjs verify outputs/azure-iris",
-    "check:visual-plan": "node scripts/check-visual-plan.mjs examples/editorial-reference/visual-plan.json"
+    "check:visual-plan": "node scripts/check-visual-plan.mjs examples/editorial-reference/visual-plan.json",
+    "check:seeds": "node scripts/check-seeds.mjs",
+    "preview:seeds": "python scripts/render-seed-preview.py"
   },
   "dependencies": {
     "pptxgenjs": "^4.0.0"

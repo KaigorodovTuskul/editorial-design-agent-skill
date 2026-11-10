@@ -1,3 +1,7 @@
+# Theme selection and specialized art direction
+
+**Default:** Crystal Cobalt Enterprise; read `references/styles/crystal-cobalt-enterprise.md`, `seeds/crystal-cobalt/README.md`, and `references/quality/crystal-cobalt-hallmark.md` for its four tonal modes, original optical seed objects, gradient roles, and rule exceptions. Azure Iris Unified remains an available alternative; the legacy guidance below applies when that theme is selected. **Never apply the Azure Iris three-mode requirements to a Crystal Cobalt project.**
+
 # Azure Iris Unified — editorial art-direction system
 
 This is a **design grammar, not a catalog of prefabricated slides**. It favors exceptional typography, real financial evidence, spatial rhythm and a carefully composed graphic language. Three tonal modes coexist in one presentation. An art director can override any suggested color distribution if the source content calls for it.

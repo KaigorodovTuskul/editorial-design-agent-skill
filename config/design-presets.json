@@ -99,6 +99,66 @@
         "maxHuesPerPage": 3,
         "notes": "Use blended monochromatic/cross-hue gradients and graphic motifs only when they serve the narrative; never repeat identical motif placement across every page."
       }
+    },
+    "crystal-cobalt-enterprise": {
+      "name": "Crystal Cobalt Enterprise",
+      "seedPath": "seeds/crystal-cobalt",
+      "paper": "#F9FBFE",
+      "surface": "#F0F3F8",
+      "ice": "#E6EDF6",
+      "lightBlue": "#8AD8FA",
+      "blue": "#075DDE",
+      "navy": "#0D2456",
+      "violet": "#7756D9",
+      "magenta": "#B21EB4",
+      "cyan": "#00BFE9",
+      "muted": "#8490A3",
+      "rule": "#C7D7EA",
+      "dark": "#141A24",
+      "onDark": "#FFFFFF",
+      "modes": {
+        "atmospheric-dark": {
+          "background": "#141A24",
+          "foreground": "#FFFFFF",
+          "surface": "#0D2456",
+          "accent": "#1885F1",
+          "secondary": "#00BFE9",
+          "iris": "#7756D9"
+        },
+        "analytical-light": {
+          "background": "#F9FBFE",
+          "foreground": "#141A24",
+          "surface": "#F0F3F8",
+          "accent": "#075DDE",
+          "secondary": "#00BFE9",
+          "iris": "#7756D9"
+        },
+        "data-night": {
+          "background": "#222B3A",
+          "foreground": "#FFFFFF",
+          "surface": "#141A24",
+          "accent": "#1885F1",
+          "secondary": "#00BFE9",
+          "iris": "#7756D9"
+        },
+        "mixed-strategic": {
+          "background": "#0D2456",
+          "foreground": "#FFFFFF",
+          "surface": "#F9FBFE",
+          "accent": "#075DDE",
+          "secondary": "#00BFE9",
+          "iris": "#B21EB4"
+        }
+      },
+      "allowedEffects": [
+        "aurora light",
+        "faceted glass",
+        "optical ring",
+        "technical contour",
+        "angular color mask",
+        "dimensional growth arrow"
+      ],
+      "assetPolicy": "Select approved local seeds as source assets; never embed financial labels or text inside an image; never imply that original glass art belongs to AEB."
     }
   },
   "fonts": {
@@ -140,7 +200,7 @@
     }
   },
   "defaults": {
-    "theme": "azure-iris-unified",
+    "theme": "crystal-cobalt-enterprise",
     "font": "geologica-roman",
     "density": "balanced",
     "images": "auto",

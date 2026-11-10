@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000"><defs>
+<linearGradient id="glass" x1=".08" y1=".15" x2=".91" y2=".87"><stop stop-color="#D9F8FF" stop-opacity=".97"/><stop offset=".16" stop-color="#65B6FF" stop-opacity=".58"/><stop offset=".32" stop-color="#0D4ED2" stop-opacity=".92"/><stop offset=".48" stop-color="#F3FCFF" stop-opacity=".77"/><stop offset=".62" stop-color="#4D5CE0" stop-opacity=".58"/><stop offset=".77" stop-color="#A76EFB" stop-opacity=".78"/><stop offset="1" stop-color="#64E6FF" stop-opacity=".9"/></linearGradient>
+<linearGradient id="shard" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF" stop-opacity=".90"/><stop offset=".4" stop-color="#78D5F8" stop-opacity=".30"/><stop offset=".8" stop-color="#4563DC" stop-opacity=".78"/><stop offset="1" stop-color="#E2B6FF" stop-opacity=".7"/></linearGradient>
+<radialGradient id="inner"><stop stop-color="#112D76" stop-opacity=".1"/><stop offset="1" stop-color="#00BFE9" stop-opacity=".72"/></radialGradient>
+<filter id="halo" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="21"/></filter>
+<mask id="annulus"><rect width="1000" height="1000" fill="black"/><circle cx="500" cy="500" r="380" fill="white"/><circle cx="500" cy="500" r="212" fill="black"/></mask></defs>
+<ellipse cx="500" cy="506" rx="382" ry="364" fill="#3C8AFF" opacity=".18" filter="url(#halo)"/>
+<path d="M 500 122 C 715 112 879 293 877 499 C 874 722 701 879 503 878 C 281 878 121 706 123 506 C 126 286 293 129 500 122Z M 502 303 C 390 299 301 389 303 502 C 306 614 388 695 501 698 C 611 699 694 611 699 499 C 697 388 609 304 502 303Z" fill="url(#glass)" fill-rule="evenodd" stroke="#B8E8FF" stroke-opacity=".8" stroke-width="5"/>
+<g mask="url(#annulus)">
+<path d="M100 278 Q230 200 419 347 T 840 210 L 835 390 Q582 520 383 367 T101 460Z" fill="url(#shard)" opacity=".54"/>
+<path d="M192 692 Q385 515 605 676 T855 612 L795 790 Q597 625 402 810Z" fill="url(#shard)" opacity=".50"/>
+<path d="M285 125 C 400 225 455 330 320 590 Q250 744 415 900" fill="none" stroke="#FFFFFF" opacity=".45" stroke-width="42"/>
+<path d="M713 132 C 620 320 783 392 812 540 Q840 730 655 885" fill="none" stroke="#71D7FF" opacity=".64" stroke-width="58"/>
+<path d="M445 88 C 520 330 701 412 850 467" fill="none" stroke="#FFFFFF" opacity=".58" stroke-width="13"/>
+<path d="M102 520 C 295 495 288 745 540 900" fill="none" stroke="#FFFFFF" opacity=".43" stroke-width="12"/>
+</g>
+<path d="M272 305 C 387 160 665 170 747 305" fill="none" stroke="#E8FAFF" stroke-opacity=".95" stroke-width="7" stroke-linecap="round"/>
+<path d="M248 640 Q310 780 468 817" fill="none" stroke="#C2E9FF" stroke-opacity=".75" stroke-width="9" stroke-linecap="round"/>
+<path d="M659 239 C 806 362 815 590 700 733" fill="none" stroke="#BBACFF" stroke-opacity=".78" stroke-width="5"/>
+</svg>

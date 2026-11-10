@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "title": "Crystal Cobalt · Strategy Editorial Showcase",
+    "publisher": "Editorial Design Research",
+    "language": "ru",
+    "dataStatus": "illustrative",
+    "sources": [
+      "Illustrative demonstration; not a bank financial forecast"
+    ],
+    "approvedForRelease": false
+  },
+  "design": {
+    "theme": "crystal-cobalt-enterprise",
+    "font": "geologica-roman",
+    "density": "balanced",
+    "approved": true,
+    "mode": "adaptive",
+    "visualIntensity": "expressive"
+  },
+  "pages": [
+    {
+      "title": "Новая логика прибыли"
+    },
+    {
+      "title": "Финансовая отправная точка"
+    },
+    {
+      "title": "Три стратегических рычага"
+    },
+    {
+      "title": "Выбор траектории"
+    }
+  ],
+  "quality": {
+    "hallmarkRequired": true,
+    "visualReviewCycles": 2,
+    "pptxParityRequired": true
+  }
+}

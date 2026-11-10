@@ -1,0 +1,50 @@
+{
+  "title": "Four original freeform editorial compositions for Crystal Cobalt",
+  "theme": "crystal-cobalt-enterprise",
+  "pages": [
+    {
+      "role": "cover",
+      "claim": "A transition from scale to profitability",
+      "silhouette": "large asymmetric type with oversized refractive optical loop",
+      "graphicFamily": "prismatic loop with concentric crop",
+      "mode": "atmospheric-dark",
+      "effectSignature": "glass-loop/cover",
+      "reason": "An optical turning form expresses the strategic transition",
+      "icons": []
+    },
+    {
+      "role": "baseline",
+      "claim": "A negative earnings starting point with balance metrics",
+      "silhouette": "monumental negative result on light page + inset dark vertical metrics rail",
+      "graphicFamily": "financial ledger with icy near-white surfaces",
+      "mode": "analytical-light",
+      "effectSignature": "light-baseline/rail",
+      "reason": "Readable separation between financial baseline and operational balance",
+      "icons": []
+    },
+    {
+      "role": "initiatives",
+      "claim": "Three distinct earning drivers",
+      "silhouette": "three broad vertical initiative columns with bottom-aligned numeric impacts",
+      "graphicFamily": "semantic pictograms and prismatic faceted accent",
+      "mode": "data-night",
+      "effectSignature": "data-prism/three-columns",
+      "reason": "Keeps initiatives aligned and emphasizes factual impact values",
+      "icons": [
+        "growth",
+        "treasury",
+        "operations"
+      ]
+    },
+    {
+      "role": "decision",
+      "claim": "Choose priorities, capital constraints and execution ownership",
+      "silhouette": "asymmetric diagonal color wedge with a dimensional arrow and right briefing column",
+      "graphicFamily": "faceted arrow on mixed editorial panel",
+      "mode": "mixed-strategic",
+      "effectSignature": "arrow-decision/split",
+      "reason": "The arrow indicates choice and execution, not a claim about numeric growth",
+      "icons": []
+    }
+  ]
+}

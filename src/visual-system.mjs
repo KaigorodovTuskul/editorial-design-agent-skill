@@ -1,16 +1,21 @@
 /** A low-cost advisory art-direction checker, not a constrained template engine. */
 export const MODES = new Set(['lighter','refined','darker']);
+export const MODES_BY_THEME = {
+ 'crystal-cobalt-enterprise':new Set(['atmospheric-dark','analytical-light','data-night','mixed-strategic']),
+ 'azure-iris-unified':MODES,
+};
 const compact = v => String(v || '').trim();
 
 /** Returns advisory findings; no generative model, no fabricated facts. */
-export function critiqueVisualScore(score) {
+export function critiqueVisualScore(score,theme=score?.theme || 'azure-iris-unified') {
+  const allowed=MODES_BY_THEME[theme] || MODES;
   const pages = Array.isArray(score?.pages) ? score.pages : [];
   const findings = [];
   if (pages.length === 0) return [{severity:'error',code:'EMPTY_SCORE',message:'Visual score has no pages.'}];
   const seen = new Map();
   for (let i = 0; i < pages.length; i++) {
     const p = pages[i];
-    if (!MODES.has(p.mode)) findings.push({severity:'error',page:i+1,code:'MODE',message:'Choose lighter, refined or darker tonal mode.'});
+    if (!allowed.has(p.mode)) findings.push({severity:'error',page:i+1,code:'MODE',message:`Choose one of ${[...allowed].join(', ')} for ${theme}.`});
     for (const field of ['role','claim','silhouette','graphicFamily','reason']) {
       if (!compact(p[field])) findings.push({severity:'error',page:i+1,code:'MISSING_'+field.toUpperCase(),message:`Missing ${field}`});
     }

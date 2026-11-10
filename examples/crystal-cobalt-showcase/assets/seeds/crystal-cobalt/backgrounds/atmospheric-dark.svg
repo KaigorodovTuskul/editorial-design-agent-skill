@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080"><defs>
+<linearGradient id="ground" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#141A24"/><stop offset=".54" stop-color="#0D2456"/><stop offset="1" stop-color="#141A24"/></linearGradient>
+<radialGradient id="cobalt"><stop stop-color="#075DDE" stop-opacity=".95"/><stop offset=".4" stop-color="#0739AD" stop-opacity=".63"/><stop offset="1" stop-color="#0739AD" stop-opacity="0"/></radialGradient>
+<radialGradient id="violet"><stop stop-color="#B21EB4" stop-opacity=".82"/><stop offset=".45" stop-color="#7756D9" stop-opacity=".36"/><stop offset="1" stop-color="#7756D9" stop-opacity="0"/></radialGradient>
+<radialGradient id="cyan"><stop stop-color="#00BFE9" stop-opacity=".67"/><stop offset="1" stop-color="#00BFE9" stop-opacity="0"/></radialGradient>
+</defs><rect width="1920" height="1080" fill="url(#ground)"/><ellipse cx="1220" cy="400" rx="950" ry="760" fill="url(#cobalt)"/><ellipse cx="1770" cy="250" rx="520" ry="690" fill="url(#violet)"/><ellipse cx="1250" cy="1090" rx="790" ry="350" fill="url(#cyan)"/><path d="M0 1018 H1920" stroke="#B7D7FA" stroke-opacity=".19"/></svg>

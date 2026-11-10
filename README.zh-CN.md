@@ -1,6 +1,6 @@
 # Editorial Design — 智能体技能与出版引擎
 
-**v0.2.2**：用于投资者演示文稿、金融分析和编辑式报告的自主排版技能。智能体为每一页编写独立的 HTML/CSS/SVG，不再被九种固定幻灯片模板限制。
+**v0.2.3**：用于投资者演示文稿、金融分析和编辑式报告的自主排版技能。智能体为每一页编写独立的 HTML/CSS/SVG，不再被九种固定幻灯片模板限制。
 
 输出包括高质量 PDF、浏览器预览和**混合可编辑 PPTX**：所有复杂视觉元素由单张背景图保存，文字和数字为 PowerPoint 原生可编辑文本框。
 
@@ -26,6 +26,10 @@ Hallmark 设计审查和 Playwright 浏览器检查是正式交付的必要条�
 
 详细使用说明请参阅 [英文文档](README.md)、[SKILL.md](SKILL.md) 和 [docs/](docs/)。
 
-## Azure Iris Unified · v0.2.2
+## Azure Iris Unified · 历史可选主题
 
-Default style: **Azure Iris Unified**, with adaptive Lighter / Refined / Darker modes and intentional SVG illustration, gradients and semantic icons. Before export, the agent must plan distinct layouts; run `npm run check:visual-plan` for quick repetition warnings. The canonical art-direction guide is `docs/art-direction.md`. Hallmark and font QA still require real installation and review.
+Previous optional style: **Azure Iris Unified**, with adaptive Lighter / Refined / Darker modes and intentional SVG illustration, gradients and semantic icons. Before export, the agent must plan distinct layouts; run `npm run check:visual-plan` for quick repetition warnings. The canonical art-direction guide is `docs/art-direction.md`. Hallmark and font QA still require real installation and review.
+
+## Crystal Cobalt Enterprise (默认主题)
+
+原始 SVG 设计素材位于 `seeds/crystal-cobalt/`，包括背景、玻璃雕塑、技术线条和金融图标。素材并非从客户提供的银行 PPT/PDF 中提取。使用 `node bin/editorial.mjs seeds crystal-cobalt-enterprise` 查看资源；使用 `node bin/editorial.mjs seed <project-dir> --theme crystal-cobalt-enterprise` 复制到项目。真正可编辑的文字必须保留为 HTML 元素；Hallmark 审核及 PPTX 视觉一致性检查仍属于交付门禁。

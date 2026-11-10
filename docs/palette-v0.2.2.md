@@ -1,6 +1,8 @@
+> Historical alternative. As of v0.2.3, the default theme is **Crystal Cobalt Enterprise** (see `references/styles/crystal-cobalt-enterprise.md`).
+
 # Azure Iris Unified — expressive editorial palette v0.2.2
 
-This supersedes `palette-v0.2.1.md` as the **default** for new builds. The older Azure / Iris Editorial profile remains available for reproducibility.
+This superseded `palette-v0.2.1.md` as the default in v0.2.2; it remains available as a theme alternative. The older Azure / Iris Editorial profile remains available for reproducibility.
 
 ### Mode variants
 
