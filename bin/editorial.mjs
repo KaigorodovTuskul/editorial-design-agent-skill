@@ -7,8 +7,9 @@ import {renderSlide,renderIndex} from '../src/render.mjs';
 import {prepareFreeform} from '../src/freeform.mjs';
 import {checkHallmark} from '../src/hallmark.mjs';
 import {recordReview,release} from '../src/release.mjs';
+import {critiqueVisualScore} from '../src/visual-system.mjs';
 const repo=resolve(import.meta.dirname,'..');
-function usage(){console.log(`Editorial Design Engine v0.2.0\n\nUsage:\n  editorial themes\n  editorial build-html <freeform-project-dir> [--out <dir>] [--allow-unverified]
+function usage(){console.log(`Editorial Design Engine v0.2.2\n\nUsage:\n  editorial themes\n  editorial build-html <freeform-project-dir> [--out <dir>] [--allow-unverified]
   editorial verify <build-dir>
   editorial build <input.json> [--out <dir>] [--unattended] [--allow-unverified]\n  editorial render <build-dir>\n  editorial export-pptx <build-dir>\n  editorial review <build-dir> --cycle 1 --notes review-notes.json\n  editorial release <build-dir> --approval human-approval.json\n\nStrict builds require a design approval, Hallmark installed, clean geometry and model-led visual review before publishing.\n--allow-unverified is for demos only; it NEVER means READY.`);}
 const args=process.argv.slice(2);
@@ -29,6 +30,15 @@ try{
     const out=resolve(valueFlag('--out','outputs/freeform'));
     const unattended=flag('--unattended'),allowUnverified=flag('--allow-unverified');
     const {doc,manifest,htmlFiles}=prepareFreeform(input,out,{unattended});
+    // Lightweight art-direction QA: once per deck, no LLM or browser needed.
+    const visualScoreFile=resolve(input,'visual-plan.json');
+    if(existsSync(visualScoreFile)){
+      const visualScore=JSON.parse(readFileSync(visualScoreFile,'utf8'));
+      const findings=critiqueVisualScore(visualScore);
+      write(join(out,'visual-plan-report.json'),{status:findings.some(f=>f.severity==='error')?'ERROR':'REVIEW',findings});
+      if(findings.some(f=>f.severity==='error')) throw new Error('Visual art-direction plan invalid: '+findings.filter(f=>f.severity==='error').map(f=>f.code).join(','));
+      if(findings.some(f=>f.severity==='warning')) console.warn('Visual score has '+findings.filter(f=>f.severity==='warning').length+' variety warnings; inspect contact sheet.');
+    }
     run(process.env.EDITORIAL_PYTHON||'python',['python/render.py',join(out,'render-manifest.json')]);
     run(process.execPath,['src/export-pptx.cjs',out,join(out,'normalized.json')]);
     const hallmark=checkHallmark(out,htmlFiles);

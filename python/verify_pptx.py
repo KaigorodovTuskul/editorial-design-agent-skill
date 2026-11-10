@@ -65,7 +65,7 @@ def compare(golden,pptx_png,fields):
 def verify(ppt,out,visual=False,strict=False,thresholds=None,pair_pdf=False):
     out=Path(out).resolve();ppt=Path(ppt).resolve()
     shapes=inspect_shapes(ppt)
-    report={'version':'0.2.0','slides':len(shapes),'native_shapes':shapes,'paired_pdf':False,
+    report={'version':'0.2.1','slides':len(shapes),'native_shapes':shapes,'paired_pdf':False,
         'has_editable_text':all(x['editable_text_shapes']>0 for x in shapes),
         'background_per_slide':all(x['background_pictures']==1 for x in shapes),
         'visual_parity':'NOT_RUN',

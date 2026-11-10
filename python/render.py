@@ -174,7 +174,7 @@ def render(config):
     if font_result['status']=='missing':
         findings.append({'severity':'P1','type':'font_missing','detail':font_result})
     report={
-      'version':'0.2.0','format':'1920x1080','slideCount':len(specs),
+      'version':'0.2.1','format':'1920x1080','slideCount':len(specs),
       'font':font_result,'slides':specs,'findings':findings,
       'contactSheet':'contact-sheet.png','pdf':'publication.pdf',
       'geometryPass':not any(f['severity']=='P0' for f in findings),

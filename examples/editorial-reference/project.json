@@ -10,11 +10,13 @@
     "approvedForRelease": false
   },
   "design": {
-    "theme": "arctic-editorial",
+    "theme": "azure-iris-unified",
     "font": "geologica-roman",
     "density": "balanced",
     "approved": true,
-    "displayFont": "Noto Serif Display"
+    "displayFont": "Noto Serif Display",
+    "visualIntensity": "expressive",
+    "mode": "adaptive"
   },
   "pages": [
     {

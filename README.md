@@ -1,6 +1,8 @@
 # Editorial Design — Agent Skill & Publishing Engine
 
-**Version 0.2.0: original, agent-authored editorial HTML → PDF + hybrid editable PPTX.**
+**Version 0.2.2: original, agent-authored editorial HTML → PDF + hybrid editable PPTX.**
+
+**Art-direction upgrade:** **Azure Iris Unified** is the default three-mode editorial identity (Lighter / Refined / Darker). This version explicitly supports richer SVG illustration, layered color, purposeful gradients and consistent semantic icons. The model must create a distinctive composition per page rather than repeating a fixed visual flourish; a lightweight art-direction score checks variety before rendering. See [`docs/art-direction.md`](docs/art-direction.md) and [`docs/palette-v0.2.2.md`](docs/palette-v0.2.2.md).
 
 An agent skill for investment presentations, strategy decks and financial publications that are visually designed rather than filled into a deck template. The **model art-directs each page** in unrestricted HTML/CSS/SVG. A deterministic engine measures text, renders real browser pages, and exports one static artwork image per slide plus native PowerPoint text objects.
 
@@ -36,14 +38,15 @@ npm run setup:hallmark
 # Preview the explicitly hand-designed, seven-slide demo
 python examples/editorial-reference/build_example.py
 node bin/editorial.mjs build-html examples/editorial-reference \
-    --out outputs/arctic-case --allow-unverified
+    --out outputs/azure-iris --allow-unverified
 
 # Native PowerPoint roundtrip + strict visual comparison.
 # If it passes, publication.pdf is regenerated from the verified PPTX
 # so the delivered PDF and PPTX share the same rendering authority.
-node bin/editorial.mjs verify outputs/arctic-case
+node bin/editorial.mjs verify outputs/azure-iris
 
 npm run check
+npm run check:visual-plan  # inspect composition variety before release
 ```
 
 `--allow-unverified` means only "create auditable draft artifacts"; it does not mark a document as approved. The `build-html` path requires `project.json`, `slides/01-*.html`, and optional local `assets/`. Each HTML file contains one `.slide` at **1920 × 1080 CSS px**, with all editable visible text in independent `[data-editable="true"]` elements. There is no named slide type to choose and no compulsory visual grid. See `examples/editorial-reference/` for a complete offline source.
@@ -74,6 +77,7 @@ editorial build <legacy-structured-json> ...  # regression compatibility only
 | `pptx-render/slide-*.png` | Actual PPTX roundtrip screenshots through LibreOffice |
 | `parity-diffs/*` | Contrast-enhanced source/PPTX visual differences |
 | `contact-sheet.png` | Whole-deck editorial overview |
+| `visual-plan-report.json` | Low-cost page-to-page originality and effect-repetition advice, when a visual plan is supplied |
 | `render-report.json` | DOM measurements, font availability, geometry findings |
 | `pptx-verify-report.json` | Editable-shape checks, visual distance metrics, paired PDF status |
 | `hallmark-report.json` | Actual Hallmark invocation or explicit missing dependency |
@@ -87,9 +91,9 @@ Editable fields may be modified in PowerPoint. Their original backgrounds are te
 
 ## Design system and agent contract
 
-Default palette: **Arctic Editorial** (muted whites, icy blues, slate, deep navy, quiet violet). Default text face: **Geologica Roman**. The agent must ask for palette and font **once, before a new interactive publication**, offering "Use defaults"; brand assets override defaults when provided. Supported alternatives: Geist, IBM Plex Sans, Onest, Manrope. The bundled demo uses Geologica with installed browser substitutes in this execution environment, and therefore cannot be cleared as a final approved Geologica publication.
+Default palette: **Azure Iris Unified** (Lighter / Refined / Darker in a single visual identity, with expressive contextual SVG, gradients and thoughtful iconography). Default text face: **Geologica Roman**. The agent must ask for palette and font **once, before a new interactive publication**, offering "Use defaults"; brand assets override defaults when provided. Supported alternatives: Geist, IBM Plex Sans, Onest, Manrope. The bundled demo uses Geologica with installed browser substitutes in this execution environment, and therefore cannot be cleared as a final approved Geologica publication.
 
-Read [`SKILL.md`](SKILL.md) for the agent contract. Supporting references: [`docs/design-grammar.md`](docs/design-grammar.md), [`docs/quality-gates.md`](docs/quality-gates.md), [`docs/hybrid-pptx.md`](docs/hybrid-pptx.md), [`docs/hallmark-integration.md`](docs/hallmark-integration.md) and [`docs/architecture.md`](docs/architecture.md).
+Read [`SKILL.md`](SKILL.md) for the agent contract. Start with [`docs/art-direction.md`](docs/art-direction.md). Supporting references: [`docs/design-grammar.md`](docs/design-grammar.md), [`docs/quality-gates.md`](docs/quality-gates.md), [`docs/hybrid-pptx.md`](docs/hybrid-pptx.md), [`docs/hallmark-integration.md`](docs/hallmark-integration.md) and [`docs/architecture.md`](docs/architecture.md).
 
 ## Responsible release
 

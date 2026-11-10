@@ -12,7 +12,11 @@ The model begins with the claim and the evidence. For the demonstration strategy
 - Use negative space to make the strongest statement stronger, not as an excuse for thin content.
 - No invented diagram/data connections. Financial bridges must reconcile or explicitly flag mismatched/rounded totals.
 - Keep system-level page margins and baseline logic consistent while permitting nonuniform columns and deliberate breaking of alignment.
-- Primary surfaces should be quiet and supportive; choose one focal chromatic contrast per page. Avoid blue-to-purple glowing mesh-gradient clichés.
+- Primary surfaces should support one dominant visual idea per page. High craft does not require low visual ambition: use controlled directional gradients, content-specific SVG art, fine patterns and structural depth when they make the claim memorable. Avoid generic blurred blue-purple glows, but do NOT prohibit gradients or effects wholesale. Switch naturally among Lighter, Refined and Darker surface modes without equating mode to fixed slide type.
 - Full source facts, unit labels, periods and caveats must remain readable. PDF/PPTX parity governs editable typography, not the originality of the HTML layouts.
 
 The example under `examples/editorial-reference/` is **hand-art-directed independent HTML**, not a set of runtime templates. Real agent tasks should author new compositions from the user's own content and visual identity.
+
+## Bespoke visual score, not a template picker
+
+Define the page's argumentative role, reading path, visual hierarchy, dominant silhouette, spatial contrast, illustration/visualization type and optional effect family. Avoid more than two consecutive pages with matching focal location or density. Detailed catalog and examples: [art-direction.md](art-direction.md).

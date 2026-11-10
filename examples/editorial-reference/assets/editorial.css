@@ -1,8 +1,8 @@
-/* Arctic Editorial — demonstration art direction. Original fixed-layout HTML, not a slide-template engine. */
+/* Azure / Iris Editorial — saturated professional visual identity, freeform compositions. */
 :root{
- --paper:#F4F7F8;--paper2:#E6EDF2;--light:#D0E3ED;--ice:#A9CADA;
- --blue:#4F829E;--steel:#38708D;--navy:#173449;--mid:#29485A;
- --muted:#6C8695;--violet:#736D91;--deep:#112735;--on:#EFF5F7;--rule:#C1D1DB;
+ --paper:#DCEFFB;--paper2:#B6DDF5;--light:#9DD4F6;--ice:#80C9F2;
+ --blue:#1C63CB;--steel:#2C7AD9;--navy:#163F89;--mid:#315E8F;
+ --muted:#4F729E;--violet:#695DCA;--deep:#1949AF;--on:#F7FBFF;--rule:#94BADF;
  --sans:Geologica,Arimo,'Liberation Sans',sans-serif; --serif:'Noto Serif Display',Georgia,serif;
 }
 *{box-sizing:border-box}html,body{margin:0;padding:0;width:1920px;height:1080px;background:var(--paper)}
@@ -111,3 +111,117 @@ body{font-family:var(--sans);font-synthesis:none;-webkit-font-smoothing:antialia
 
 .bridge-link{position:absolute;height:1px;background:#8FA9B9;opacity:.85;z-index:1}
 .bridge-disclaimer{position:absolute;left:100px;bottom:108px;color:var(--muted)}.bridge-disclaimer .ed{font-size:17px}
+
+/* Azure / Iris v0.2.1: scene-dependent color, with controlled chromatic coverage.
+   Not a blanket blue-purple gradient and not a global white/blue corporate template. */
+.slide[data-slide-id="01"]{background:#2457BD;color:#FAFDFF}
+.slide[data-slide-id="01"] .cover-mark{opacity:.86}
+.slide[data-slide-id="01"] .cover-orbit{stroke:#90CFFA;stroke-width:1.4;opacity:.40}
+.slide[data-slide-id="01"] .cover-orbit-strong{stroke:#BBE8FF;stroke-width:1.9;opacity:.61}
+.slide[data-slide-id="01"] .cover-dash{stroke:#D6D0FF;stroke-width:2.2;opacity:.84}
+.slide[data-slide-id="01"] .cover-index .bar{background:#B8EDFF;height:4px}
+.slide[data-slide-id="01"] .cover-aside{border-left-color:#8DC4F8}
+.slide[data-slide-id="01"] .header,.slide[data-slide-id="01"] .footer{border-color:#789BDA}
+.slide[data-slide-id="01"] .footer .ed,.slide[data-slide-id="01"] .header .ed{color:#ECF5FF}
+.slide[data-slide-id="02"]{background:#D1E9FC}
+.slide[data-slide-id="02"] .right-panel{background:#3445A6}
+.slide[data-slide-id="02"] .right-panel .panel-rule{background:#788ADE}
+.slide[data-slide-id="02"] .loss .ed{color:#6549BA}
+.slide[data-slide-id="02"] .loss-rule{background:#725CC5;height:4px}
+.slide[data-slide-id="02"] .position-main{z-index:1}
+.slide[data-slide-id="02"] .position-main:before{content:'';position:absolute;left:-100px;top:-168px;width:calc(100% + 100px);height:450px;pointer-events:none;background:#E1F2FC;opacity:.60;z-index:-1}
+.slide[data-slide-id="03"]{background:#C2E1F8}
+.slide[data-slide-id="03"] .shift-number{background:#2655BC;box-shadow:20px 20px 0 #9CCFF1}
+.slide[data-slide-id="03"] .shift-stroke,.slide[data-slide-id="03"] .shift-transition{background:#799EE6}
+.slide[data-slide-id="03"] .shift-transition:after{background:#2655BC;border-color:#B9E7FF}
+.slide[data-slide-id="03"] .shift-number .ed{color:#F4FAFF}
+.slide[data-slide-id="03"] .shift-number .smallcap.faint{color:#ABCEF8}
+.slide[data-slide-id="03"] .shift-number .smallcap.accent{color:#9CE6FF}
+.slide[data-slide-id="03"] .shift-hero .accent{color:#5148AA}
+.slide[data-slide-id="04"]{background:#3157B6;color:#F8FBFF;
+ background-image:repeating-linear-gradient(130deg,rgba(195,234,255,.025) 0px,rgba(195,234,255,.025) 1px,transparent 1px,transparent 34px)}
+.slide[data-slide-id="04"] .header,.slide[data-slide-id="04"] .footer{border-color:#7297DE}
+.slide[data-slide-id="04"] .header .ed,.slide[data-slide-id="04"] .footer .ed{color:#E7F4FF}
+.slide[data-slide-id="04"] .levers-header .ed{color:#FDFEFF}
+.slide[data-slide-id="04"] .levers-header .accent{color:#AEEBFF}
+.slide[data-slide-id="04"] .lever{border-top-color:#769BE2}
+.slide[data-slide-id="04"] .lever:last-child{border-bottom-color:#769BE2}
+.slide[data-slide-id="04"] .lever .idx .ed{color:#95D8FA}
+.slide[data-slide-id="04"] .lever .heading .ed{color:#FCFEFF}
+.slide[data-slide-id="04"] .lever .details .ed{color:#E0EEFF}
+.slide[data-slide-id="04"] .lever .amount .ed{color:#B7F0FF}
+.slide[data-slide-id="04"] .lever .amount .faint{color:#D3E8FD}
+.slide[data-slide-id="05"]{background:#B7DCF9}
+.slide[data-slide-id="05"] .scenario-plot{background:rgba(228,245,255,.58)}
+.slide[data-slide-id="05"] .scenario-bar{background:#2F6DD2}
+.slide[data-slide-id="05"] .scenario-dot{background:#173FA8}
+.slide[data-slide-id="05"] .scenario-zero{background:#557BC2}
+.slide[data-slide-id="05"] .scenario-nums .ed{color:#224A8D}
+.slide[data-slide-id="05"] .scenarios-title .accent{color:#5B4FB9}
+.slide[data-slide-id="06"]{background:#D5DDFB}
+.slide[data-slide-id="06"] .bridge{background:rgba(224,233,255,.60)}
+.slide[data-slide-id="06"] .bridge-bar{background:#215FC5}
+.slide[data-slide-id="06"] .bridge-bar.negative{background:#7998D4}
+.slide[data-slide-id="06"] .bridge-bar.violet{background:#6659C7}
+.slide[data-slide-id="06"] .bridge-title .accent{color:#6150B1}
+.slide[data-slide-id="06"] .bridge-footer .accent{color:#5045A6}
+.slide[data-slide-id="07"]{background:#5856B8;color:#FDFEFF}
+.slide[data-slide-id="07"] .decision-lineart{opacity:.57}
+.slide[data-slide-id="07"] .decision-lineart path{stroke:#B7C8FF}
+.slide[data-slide-id="07"] .decision-item{border-top-color:#AAAEEB}
+.slide[data-slide-id="07"] .decision-item .copy .ed{color:#F0F4FF}
+.slide[data-slide-id="07"] .decision-item .index .ed{color:#BAE7FF}
+.slide[data-slide-id="07"] .header,.slide[data-slide-id="07"] .footer{border-color:#979EE3}
+.slide[data-slide-id="07"] .header .ed,.slide[data-slide-id="07"] .footer .ed{color:#E9F3FF}
+/* Editorial finish: keep the graphic rule between, not through, the two narratives. */
+.slide[data-slide-id="03"] .shift-transition{top:229px}
+.slide[data-slide-id="03"] .shift-now{top:290px}
+.slide[data-slide-id="03"] .shift-stroke.two{top:462px}
+
+/* Azure Iris Unified v0.2.2 — intentional varied material and light.
+   All effects remain static HTML/CSS/SVG under the editable text layer. */
+.slide[data-slide-id="01"]{
+  background:
+    radial-gradient(ellipse 720px 700px at 75% 48%,rgba(37,130,233,.48),transparent 73%),
+    linear-gradient(115deg,#0A2554 3%,#153C82 49%,#1C4C9D 75%,#102C61 100%);
+}
+.cover-ribbon{position:absolute;top:0;right:-145px;width:1150px;height:1080px;pointer-events:none;opacity:.79}
+.slide[data-slide-id="02"]{background:
+   linear-gradient(135deg,#F0F6FF 0%,#D5E8FF 63%,#D9DEFC 100%)}
+.slide[data-slide-id="02"] .right-panel{
+  background:linear-gradient(145deg,#0D2859,#174488 63%,#283E87 100%);
+}
+.slide[data-slide-id="02"] .position-main:before{
+ background:linear-gradient(115deg,rgba(255,255,255,.4),rgba(255,255,255,0));opacity:.80
+}
+.slide[data-slide-id="02"] .loss .ed{color:#235FCD}
+.slide[data-slide-id="02"] .loss-rule{background:#4A7DEF}
+.slide[data-slide-id="03"]{
+  background:linear-gradient(160deg,#F0F6FF 0%,#DDE9FD 50%,#C5D2F8 100%);
+}
+.slide[data-slide-id="03"] .shift-number{
+ background:linear-gradient(142deg,#163A80 0%,#2258BD 50%,#3059C7 80%,#4D4CAD 100%);
+ box-shadow:20px 20px 0 #AAC7F3
+}
+.slide[data-slide-id="03"] .shift-hero .accent{color:#245DE0}
+.slide[data-slide-id="04"]{
+  background:
+    linear-gradient(119deg,rgba(9,28,65,.04) 0%,rgba(45,131,216,.31) 76%,rgba(113,116,214,.40) 100%),
+    repeating-linear-gradient(125deg,transparent 0px,transparent 33px,rgba(186,231,255,.06) 34px,transparent 35px),
+    #0E316A;
+}
+.lever .idx{position:relative}
+.lever-icon{position:absolute;left:78px;top:22px;width:52px;height:42px;color:#80D8F4;opacity:.9}
+.slide[data-slide-id="05"]{
+  background:linear-gradient(153deg,#E7F4FF 0%,#E2F0FF 58%,#E0E3FD 100%);
+}
+.scenario-field{position:absolute;top:180px;right:-100px;width:910px;height:690px;pointer-events:none}
+.slide[data-slide-id="05"] .scenario-plot{background:linear-gradient(90deg,rgba(246,251,255,.85),rgba(238,246,255,.49));}
+.slide[data-slide-id="06"]{background:linear-gradient(150deg,#F3F8FF,#E8F0FD 64%,#D7DBFA)}
+.bridge-plane{position:absolute;top:0;left:0;width:1920px;height:1080px;pointer-events:none}
+.slide[data-slide-id="06"] .bridge{background:rgba(243,249,255,.76);border-top:1px solid #B7CCEB}
+.slide[data-slide-id="07"]{
+  background:linear-gradient(127deg,#112B63 4%,#204988 42%,#2C4490 72%,#342F77 100%);
+}
+.decision-fold{position:absolute;right:-20px;top:5px;width:1150px;height:780px;pointer-events:none}
+.slide[data-slide-id="07"] .decision-lineart{opacity:.24}

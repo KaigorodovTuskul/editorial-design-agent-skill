@@ -24,7 +24,7 @@ test('freeform rejects unapproved design decisions in interactive mode',()=>{
    cpSync(repo.pathname,join(td,'source'),{recursive:true});
    const p=join(td,'source','project.json');const j=JSON.parse(readFileSync(p,'utf8'));j.design.approved=false;writeFileSync(p,JSON.stringify(j));
    assert.throws(()=>prepareFreeform(join(td,'source'),join(td,'out')),/Ask for palette\/font choice/);
-   assert.equal(prepareFreeform(join(td,'source'),join(td,'out'),{unattended:true}).doc.design.theme,'arctic-editorial');
+   assert.equal(prepareFreeform(join(td,'source'),join(td,'out'),{unattended:true}).doc.design.theme,'azure-iris-unified');
  }finally{rmSync(td,{recursive:true,force:true});}
 });
 

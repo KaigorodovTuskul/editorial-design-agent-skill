@@ -1,0 +1,79 @@
+{
+  "title": "Demonstration art direction, not reusable slide templates",
+  "pages": [
+    {
+      "role": "opening thesis",
+      "claim": "Financial strategy shifts to profit and capital productivity",
+      "silhouette": "monumental split cover",
+      "graphicFamily": "orbital ribbon",
+      "mode": "darker",
+      "effectSignature": "orbital-ribbon-A",
+      "reason": "Supports this page’s reading path and evidence structure",
+      "icons": []
+    },
+    {
+      "role": "baseline",
+      "claim": "2026 forecast opens at a negative result",
+      "silhouette": "asymmetric metric with dark facts rail",
+      "graphicFamily": "technical lightfield",
+      "mode": "lighter",
+      "effectSignature": "field-rail-B",
+      "reason": "Supports this page’s reading path and evidence structure",
+      "icons": []
+    },
+    {
+      "role": "pivot",
+      "claim": "Business model changes from scale to quality",
+      "silhouette": "diagonal typographic thesis",
+      "graphicFamily": "cropped iris band",
+      "mode": "refined",
+      "effectSignature": "band-cut-C",
+      "reason": "Supports this page’s reading path and evidence structure",
+      "icons": []
+    },
+    {
+      "role": "drivers",
+      "claim": "Three operating levers support improvement",
+      "silhouette": "three-row ledger with numeric accents",
+      "graphicFamily": "fine-line icons",
+      "mode": "darker",
+      "effectSignature": "ink-ledger-D",
+      "reason": "Supports this page’s reading path and evidence structure",
+      "icons": [
+        "fee",
+        "treasury",
+        "operations"
+      ]
+    },
+    {
+      "role": "scenarios",
+      "claim": "Three profit paths share a risk appetite",
+      "silhouette": "full-width diverging bar field",
+      "graphicFamily": "soft-sky mathematical grid",
+      "mode": "lighter",
+      "effectSignature": "grid-axis-E",
+      "reason": "Supports this page’s reading path and evidence structure",
+      "icons": []
+    },
+    {
+      "role": "quantitative bridge",
+      "claim": "The profit bridge is made of decisions",
+      "silhouette": "precise waterfall with edge annotations",
+      "graphicFamily": "tonal chart planes",
+      "mode": "refined",
+      "effectSignature": "chart-lines-F",
+      "reason": "Supports this page’s reading path and evidence structure",
+      "icons": []
+    },
+    {
+      "role": "decision",
+      "claim": "Management must choose priorities and owners",
+      "silhouette": "off-axis concluding statement",
+      "graphicFamily": "folded iridescent horizon",
+      "mode": "darker",
+      "effectSignature": "fold-G",
+      "reason": "Supports this page’s reading path and evidence structure",
+      "icons": []
+    }
+  ]
+}
