@@ -1,0 +1,30 @@
+{
+  "themes": {
+    "arctic-editorial": {
+      "name": "Arctic Editorial", "paper": "#F7FAFD", "surface": "#FFFFFF",
+      "ice": "#E8F1F8", "lightBlue": "#91B8D4", "blue": "#416F9E",
+      "navy": "#192F50", "violet": "#696184", "muted": "#5C7185",
+      "rule": "#CCD9E5", "dark": "#10243D", "onDark": "#F5F8FC"
+    },
+    "deep-navy": {
+      "name": "Deep Navy", "paper": "#EDF2F8", "surface": "#FFFFFF",
+      "ice": "#D7E2EF", "lightBlue": "#A0B9D4", "blue": "#5279A8",
+      "navy": "#15263E", "violet": "#6B6684", "muted": "#60748A",
+      "rule": "#C6D4E3", "dark": "#0E1A2C", "onDark": "#F4F7FB"
+    },
+    "monochrome-editorial": {
+      "name": "Monochrome Editorial", "paper": "#F8F8F7", "surface": "#FFFFFF",
+      "ice": "#EBEBEA", "lightBlue": "#B6BDC1", "blue": "#616A72",
+      "navy": "#22272B", "violet": "#77747D", "muted": "#676D70",
+      "rule": "#D1D4D4", "dark": "#1B2023", "onDark": "#F8F8F7"
+    }
+  },
+  "fonts": {
+    "geologica-roman": { "name": "Geologica Roman", "css": "Geologica", "pptx": "Geologica", "fallback": "Arial", "cssVariation": "'CRSV' 0", "cyrillic": true },
+    "geist": { "name": "Geist Sans", "css": "Geist", "pptx": "Geist", "fallback": "Arial", "cyrillic": true },
+    "ibm-plex-sans": { "name": "IBM Plex Sans", "css": "IBM Plex Sans", "pptx": "IBM Plex Sans", "fallback": "Arial", "cyrillic": true },
+    "onest": { "name": "Onest", "css": "Onest", "pptx": "Onest", "fallback": "Arial", "cyrillic": true },
+    "manrope": { "name": "Manrope", "css": "Manrope", "pptx": "Manrope", "fallback": "Arial", "cyrillic": true }
+  },
+  "defaults": { "theme": "arctic-editorial", "font": "geologica-roman", "density": "balanced", "images": "auto" }
+}

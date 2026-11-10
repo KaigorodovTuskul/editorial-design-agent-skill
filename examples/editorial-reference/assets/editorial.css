@@ -1,0 +1,113 @@
+/* Arctic Editorial — demonstration art direction. Original fixed-layout HTML, not a slide-template engine. */
+:root{
+ --paper:#F4F7F8;--paper2:#E6EDF2;--light:#D0E3ED;--ice:#A9CADA;
+ --blue:#4F829E;--steel:#38708D;--navy:#173449;--mid:#29485A;
+ --muted:#6C8695;--violet:#736D91;--deep:#112735;--on:#EFF5F7;--rule:#C1D1DB;
+ --sans:Geologica,Arimo,'Liberation Sans',sans-serif; --serif:'Noto Serif Display',Georgia,serif;
+}
+*{box-sizing:border-box}html,body{margin:0;padding:0;width:1920px;height:1080px;background:var(--paper)}
+body{font-family:var(--sans);font-synthesis:none;-webkit-font-smoothing:antialiased}
+.slide{position:relative;width:1920px;height:1080px;overflow:hidden;isolation:isolate;background:var(--paper);color:var(--navy)}
+.ed{display:block;white-space:nowrap;width:max-content;max-width:none;margin:0;padding:0;border:0;line-height:1.15;font-kerning:normal;font-variation-settings:'CRSV' 0;font-synthesis:none}
+.serif{font-family:var(--serif);font-weight:400;letter-spacing:-.048em;line-height:1.08}
+.serif-i{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.055em;line-height:1.08}
+.sans{font-family:var(--sans);font-weight:400}
+.medium{font-weight:500}.bold{font-weight:700}
+.smallcap{letter-spacing:.18em;text-transform:uppercase;font-family:var(--sans);font-size:16px;font-weight:700}
+.faint{color:var(--muted)}.accent{color:var(--blue)}.lavender{color:var(--violet)}.white{color:var(--on)}
+.header{position:absolute;top:60px;left:100px;right:100px;display:flex;justify-content:space-between;align-items:center;padding-bottom:24px;border-bottom:1px solid var(--rule);z-index:20}
+.header .ed{font-size:17px;letter-spacing:.12em;font-weight:600;text-transform:uppercase}
+.footer{position:absolute;bottom:49px;left:100px;right:100px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--rule);padding-top:21px;z-index:20}
+.footer .ed{font-size:16px;color:var(--muted);letter-spacing:.035em}
+.dark{background:var(--deep);color:var(--on)}
+.dark .header,.dark .footer{border-color:#39505E}
+.dark .footer .ed,.dark .header .ed{color:#BACDD6}
+.scene{position:absolute;left:100px;right:100px;top:145px;bottom:122px}
+.big-display{font-family:var(--serif);letter-spacing:-.055em;font-weight:400;line-height:1.04}
+.rule{height:1px;background:var(--rule)}.dark .rule{background:#536773}
+.micro{font-size:19px;color:var(--muted);letter-spacing:.01em}
+/* Individual slides — no universal card layout. */
+.cover-mark{position:absolute;right:-160px;top:-80px;width:1130px;height:1070px;opacity:.76}
+.cover-orbit{fill:none;stroke:#476576;stroke-width:1.25}
+.cover-orbit-strong{fill:none;stroke:#7291A4;stroke-width:1.6;opacity:.7}
+.cover-dash{fill:none;stroke:#7B7BA1;stroke-width:1.4;stroke-dasharray:8 22;opacity:.7}
+.cover-index{position:absolute;left:100px;top:180px;display:flex;gap:16px;align-items:center}
+.cover-index .bar{width:74px;height:3px;background:#A9CADA}
+.cover-title{position:absolute;left:100px;top:260px}
+.cover-title .ed{font-size:142px}
+.cover-sub{position:absolute;left:103px;top:758px}
+.cover-sub .ed{font-size:25px;line-height:1.3}
+.cover-aside{position:absolute;right:114px;bottom:195px;width:340px;border-left:1px solid #567081;padding-left:24px}
+.cover-aside .ed{font-size:19px;line-height:1.35}
+/* Position + financial baseline */
+.position-main{position:absolute;left:100px;top:168px;width:1230px}
+.position-main .ed{font-size:79px}
+.loss{position:absolute;top:505px;left:95px;display:flex;gap:30px;align-items:flex-end}
+.loss .ed{font-size:205px;line-height:.94;letter-spacing:-.085em}
+.loss-unit{padding-bottom:13px;margin-left:75px}.loss-unit .ed{font-size:43px}
+.loss-rule{position:absolute;top:735px;left:100px;width:1050px;height:3px;background:var(--violet)}
+.loss-note{position:absolute;top:763px;left:100px}
+.loss-note .ed{font-size:26px;color:var(--mid)}
+.right-panel{position:absolute;top:0;bottom:0;right:0;width:510px;background:#203A4E;color:var(--on);padding:205px 75px 130px}
+.right-panel .ed{color:var(--on)}
+.right-panel .panel-rule{height:1px;background:#4D6574;margin:32px 0}
+.right-panel .metric{display:flex;justify-content:space-between;align-items:baseline;width:100%}
+.right-panel .metric .ed{font-size:23px}
+/* Shift thesis */
+.shift-hero{position:absolute;left:100px;top:196px}
+.shift-hero .ed{font-size:127px}
+.shift-caption{position:absolute;left:100px;top:650px;width:650px}
+.shift-caption .ed{font-size:25px;line-height:1.34}
+.shift-number{position:absolute;right:100px;top:210px;width:720px;height:475px}
+.shift-stroke{position:absolute;left:0;top:0;right:0;height:1px;background:var(--rule)}
+.shift-stroke.two{top:445px}
+.shift-then{position:absolute;top:54px;left:52px}.shift-now{position:absolute;top:275px;left:52px}
+.shift-then .ed,.shift-now .ed{font-size:31px;line-height:1.28}
+.shift-transition{position:absolute;top:187px;left:44px;width:640px;height:1px;background:var(--rule)}
+.shift-transition:after{content:'';position:absolute;right:0;top:-4px;width:9px;height:9px;border:1px solid var(--blue);border-radius:50%;background:var(--paper)}
+/* Three levers */
+.levers-header{position:absolute;left:100px;top:160px}.levers-header .ed{font-size:96px}
+.levers-rows{position:absolute;left:100px;right:100px;top:370px}
+.lever{display:grid;grid-template-columns:140px 490px 1fr 225px;align-items:center;gap:20px;height:176px;border-top:1px solid var(--rule)}
+.lever:last-child{border-bottom:1px solid var(--rule)}
+.lever .idx .ed{font-size:73px;color:var(--ice);font-family:var(--serif)}
+.lever .heading .ed{font-size:35px;font-family:var(--serif);letter-spacing:-.015em}
+.lever .details .ed{font-size:23px;color:var(--mid);line-height:1.35}
+.lever .amount{justify-self:end;text-align:right}.lever .amount .ed{font-size:48px;color:var(--blue);font-weight:500;letter-spacing:-.035em}
+/* Scenarios */
+.scenarios-title{position:absolute;left:100px;top:168px}.scenarios-title .ed{font-size:98px}
+.scenario-plot{position:absolute;left:100px;right:100px;top:441px;height:405px}
+.scenario-zero{position:absolute;left:1100px;top:0;bottom:0;width:1px;background:#9BB2BE}
+.scenario-head{position:absolute;left:1000px;top:-48px}.scenario-head .ed{font-size:18px}
+.scenario{position:relative;height:121px;display:grid;grid-template-columns:58px 415px 1fr;align-items:center;border-bottom:1px solid var(--rule)}
+.scenario-label .ed{font-size:27px}.scenario-idx .ed{font-size:27px;color:var(--muted)}
+.scenario-bar-wrap{position:relative;height:68px}
+.scenario-bar{position:absolute;top:18px;height:27px;border-radius:2px;background:#AFC4D2}
+.scenario-dot{position:absolute;top:26px;width:10px;height:10px;border-radius:50%;background:var(--blue)}
+.scenario-num{position:absolute;right:24px;top:10px}.scenario-num .ed{font-size:44px;font-weight:500}
+.scenario-nums{position:absolute;bottom:105px;left:100px;display:flex;gap:86px}.scenario-nums .ed{font-size:23px;color:var(--mid)}
+/* Waterfall */
+.bridge-title{position:absolute;left:100px;top:158px}.bridge-title .ed{font-size:88px}
+.bridge-sub{position:absolute;left:100px;top:410px}.bridge-sub .ed{font-size:22px;color:var(--muted)}
+.bridge{position:absolute;left:100px;right:100px;top:515px;height:348px;border-bottom:1px solid var(--rule)}
+.bridge-axis{position:absolute;top:195px;left:0;right:0;height:1px;border-top:1px dashed #BBCAD1}
+.bridge-item{position:absolute;top:0;width:202px;height:330px;text-align:center}
+.bridge-label{position:absolute;top:4px;left:0;right:0}.bridge-label .ed{font-size:17px;margin:auto;color:var(--mid)}
+.bridge-value{position:absolute;top:49px;left:0;right:0}.bridge-value .ed{font-size:30px;font-weight:500;margin:auto}
+.bridge-bar{position:absolute;left:82px;width:38px;background:var(--blue)}
+.bridge-bar.negative{background:#8497A4}.bridge-bar.violet{background:var(--violet)}
+.bridge-footer{position:absolute;left:100px;right:100px;bottom:134px;display:flex;gap:25px;align-items:baseline;border-top:1px solid var(--rule);padding-top:30px}
+.bridge-footer .ed{font-size:29px}
+/* Decision */
+.decision-title{position:absolute;left:100px;top:185px}.decision-title .ed{font-size:108px}
+.decision-items{position:absolute;left:100px;right:100px;top:603px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:65px}
+.decision-item{border-top:1px solid #526A7B;padding-top:30px;min-width:0}
+.decision-item .ed{font-size:24px;color:var(--on);margin-top:20px}
+.decision-item .index .ed{color:#9FB6C8;font-size:17px}
+.decision-item .copy .ed{font-size:19px;color:#B2C5CE;line-height:1.33}
+.decision-lineart{position:absolute;right:-120px;top:115px;width:700px;height:480px;opacity:.35}
+/* The metadata on the second spread lies on the dark factual rail. */
+.slide[data-slide-id="02"] .header .ed:last-child{color:#E7F0F4}
+
+.bridge-link{position:absolute;height:1px;background:#8FA9B9;opacity:.85;z-index:1}
+.bridge-disclaimer{position:absolute;left:100px;bottom:108px;color:var(--muted)}.bridge-disclaimer .ed{font-size:17px}

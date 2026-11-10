@@ -1,0 +1,11 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';import {normalize,presets} from '../src/validate.mjs';
+import {renderSlide} from '../src/render.mjs';import {escapeHtml} from '../src/utils.mjs';
+const sample=()=>JSON.parse(readFileSync(new URL('../examples/illustrative-investor-deck.json',import.meta.url),'utf8'));
+test('sample normalizes with default brand and Geologica',()=>{const v=normalize(sample());assert.equal(v.design.theme,'arctic-editorial');assert.equal(v.font.css,'Geologica');assert.equal(v.slides.length,8);});
+test('design is approved before interactive publishing',()=>{const v=sample();delete v.design.approved;assert.throws(()=>normalize(v),/Design selection not approved/);assert.ok(normalize(v,{unattended:true}));});
+test('verified document needs sources and approval',()=>{const v=sample();v.meta.dataStatus='verified';assert.throws(()=>normalize(v),/sources/);v.meta.sources=['Official annual financial report'];assert.throws(()=>normalize(v),/approvedForRelease/);v.meta.approvedForRelease=true;assert.ok(normalize(v));});
+test('duplicate slide ids are rejected',()=>{const v=sample();v.slides[1].id=v.slides[0].id;assert.throws(()=>normalize(v),/Duplicate slide/);});
+test('XSS is escaped',()=>{assert.equal(escapeHtml('<script>'), '&lt;script&gt;');const v=sample();v.slides[0].title='<img src=x onerror=alert(1)>';const html=renderSlide(normalize(v),v.slides[0],0);assert.ok(!html.includes('<img src=x'));assert.ok(html.includes('&lt;img'));});
+test('every design family produces a slide with editable layers',()=>{const v=normalize(sample());for(const [i,s] of v.slides.entries()){const html=renderSlide(v,s,i);assert.ok(html.includes('data-editable="true"'),s.id);assert.ok(html.includes('data-slide-id="'+s.id+'"'));assert.ok(html.includes('.slide{'));}});
+test('fonts and themes are registered',()=>{assert.ok(Object.keys(presets.fonts).length>=5);assert.ok(Object.keys(presets.themes).length>=3);});

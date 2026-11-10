@@ -1,0 +1,9 @@
+{
+  "hallmark": {
+    "repository": "https://github.com/Nutlope/hallmark.git",
+    "commit": "407fa689f4a276f2fd389208d271d0fef08f5058",
+    "executable": "vendor/hallmark/skills/hallmark/scripts/sloplint.mjs",
+    "license": "MIT",
+    "required_for_release": true
+  }
+}

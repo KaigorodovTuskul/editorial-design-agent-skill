@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Стратегическая сессия — модель прибыли 2027",
+    "publisher": "Editorial Design Research Demonstration",
+    "language": "ru",
+    "dataStatus": "illustrative",
+    "sources": [
+      "User-provided seven-page financial strategy reference (2026-11-10); figures reproduced as an illustrative design proof"
+    ],
+    "approvedForRelease": false
+  },
+  "design": {
+    "theme": "arctic-editorial",
+    "font": "geologica-roman",
+    "density": "balanced",
+    "approved": true,
+    "displayFont": "Noto Serif Display"
+  },
+  "pages": [
+    {
+      "title": "Модель прибыли 2027"
+    },
+    {
+      "title": "От правильной базы"
+    },
+    {
+      "title": "Сменить логику"
+    },
+    {
+      "title": "Три рычага"
+    },
+    {
+      "title": "Три траектории"
+    },
+    {
+      "title": "Прибыль из решений"
+    },
+    {
+      "title": "Определить выбор"
+    }
+  ],
+  "quality": {
+    "visualReviewCycles": 2,
+    "pptxParityRequired": true,
+    "hallmarkRequired": true
+  }
+}

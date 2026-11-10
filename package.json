@@ -1,0 +1,24 @@
+{
+  "name": "editorial-design-agent-skill",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Agent-directed freeform editorial HTML publishing with audited PDF and hybrid PPTX",
+  "bin": {
+    "editorial": "./bin/editorial.mjs"
+  },
+  "scripts": {
+    "setup:hallmark": "node scripts/install-hallmark.mjs",
+    "check": "node --test tests/*.test.mjs",
+    "demo": "python examples/editorial-reference/build_example.py && node bin/editorial.mjs build-html examples/editorial-reference --out outputs/arctic-case --allow-unverified",
+    "demo:strict": "node bin/editorial.mjs build-html examples/editorial-reference --out outputs/arctic-case",
+    "demo:verify": "node bin/editorial.mjs verify outputs/arctic-case"
+  },
+  "dependencies": {
+    "pptxgenjs": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

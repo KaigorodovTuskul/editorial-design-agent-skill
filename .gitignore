@@ -1,0 +1,10 @@
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+outputs/
+dist/
+.tmp/
+.DS_Store
+vendor/hallmark/
+!vendor/README.md
